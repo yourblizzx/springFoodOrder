@@ -14,9 +14,4 @@
 
     <context:component-scan base-package="com.myspring"></context:component-scan>
 
-    <bean class="com.myspring.beans.Configuration">
-        <property name="database" value="twitter"></property>
-        <property name="password" value="password"></property>
-        <property name="user" value="root"></property>
-    </bean>
 </beans>
