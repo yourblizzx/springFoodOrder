@@ -52,12 +52,12 @@
 </style>
 <div class="container-fluid">
     <div class="row">
-        <form class="form-signin card card-primary">
+        <form class="form-signin card card-primary" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
             <div class="form-group">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputLogin" class="sr-only">Login</label>
+                <input type="text" name="login" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
             </div>
 
             <div class="form-group">
@@ -74,10 +74,11 @@
                 <label for="name" class="sr-only">Name</label>
                 <input type="text" name="name"   id="name" class="form-control" placeholder="Name" required>
             </div>
-
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <p class="text-muted">
-                Already registered<a class="btn btn-link" href="/siginin">Sign in</a>
+                Already registered<a class="btn btn-link" href="/">Sign in</a>
             </p>
+
 
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>

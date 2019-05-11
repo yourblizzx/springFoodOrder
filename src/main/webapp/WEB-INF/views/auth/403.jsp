@@ -52,25 +52,10 @@
 </style>
 <div class="container-fluid">
     <div class="row">
-        <form class="form-signin card card-primary" method="post" action="/login">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <div class="form-group">
-                <label for="inputLogin" class="sr-only">login</label>
-                <input type="text" name="login" id="inputLogin" class="form-control" placeholder="Login"
-                       required autofocus>
-            </div>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-
-            <div class="form-group">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"
-                       required>
-            </div>
-            <p cl>
-                Not registered yet <a class="btn btn-link" href="/register">register</a>
-            </p>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
+        <div class="form-signin card card-primary">
+            <h1 class="h3 mb-3 font-weight-normal">Access forbidden 403!</h1>
+            <h2>Sorry</h2>
+        </div>
     </div>
 </div>
 <%@include file="../../parts/footer.jsp" %>

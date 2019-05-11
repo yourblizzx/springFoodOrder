@@ -14,4 +14,35 @@
 
     <context:component-scan base-package="com.myspring"></context:component-scan>
 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://89.208.87.84:3306/food_ordering?useUnicode=true&amp;serverTimezone=UTC&amp;characterEncoding=utf-8" />
+        <property name="username" value="exchange" />
+        <property name="password" value="Ff@123" />
+    </bean>
+
+    <bean id = "sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="packagesToScan" value="com.myspring.entities">
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="userBean" class="com.myspring.beans.UserBean">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="roleBean" class="com.myspring.beans.RoleBean">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id = "userSecurity" class="com.myspring.security.UserDetailsService">
+        <property name="userBean" ref="userBean"/>
+    </bean>
 </beans>
